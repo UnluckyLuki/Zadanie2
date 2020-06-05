@@ -107,7 +107,7 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkgincludedir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_program_OBJECTS = main.$(OBJEXT)
 program_OBJECTS = $(am_program_OBJECTS)
-program_DEPENDENCIES = ../headers/libpole.a ../headers/libobjetosc.a
+program_DEPENDENCIES = ../headers/libpole.a ../headers/libobjetosc.la
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -325,7 +325,7 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AM_CPPFLAGS = -I ../headers
 pkginclude_HEADERS = ../headers/pole.h ../headers/objetosc.h
-program_LDADD = ../headers/libpole.a ../headers/libobjetosc.a
+program_LDADD = ../headers/libpole.a ../headers/libobjetosc.la
 program_SOURCES = main.cpp
 all: all-am
 

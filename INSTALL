@@ -1,4 +1,4 @@
-program Ver. 0.2 podpunkt b
+program Ver. 0.3 podpunkt c
 
 1. Sprawdz czy masz zainstalowane programy:
 automake, autoconf, libtool oraz gcc
@@ -7,8 +7,9 @@ sudo apt list --installed |grep automake nazwaprogramu
 2. Jezeli nie posiadasz na swoim systemie danych programow uzyj polecenia:
 sudo apt-get install nazwaprogramu
 3. Rozpakuj dany program uzywajac terminalu graficznego lub polecenia w terminalu:
-tar -xzvf Zadanie2.tar.gz -C /'nazwa_folderu'
+tar -xzvf pole_i_objentosc-O.3_ver.tar.gz -C /'nazwa_folderu'
 4. W danym folderze z programem uzyj nastepujacej komend w nastepujacej kolejnosci:
+autoreconf -i
 aclocal
 autoconf
 automake

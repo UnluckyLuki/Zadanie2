@@ -1,4 +1,4 @@
-Zadanie2 ver. 0.2 podpunkt b
+Zadanie2 ver. 0.3 podpunkt c
 
 Program ten liczy pole prostokata oraz objetosc prostopadloscianu. Dane sa pobierane bezposrednio od uzytkownika po czym program przelicza na oczekiwane rzultaty.
 
@@ -16,3 +16,7 @@ Zadanie2 ver. 0.2 podpunkt b
 - Pliki z rozszerzeniem .h zostaly przeniesione do katalogu /headers.
 - Pliki z rozszerzeniem .cpp zostaly przeniesione do katalogu /src.
 - Przeniesienie programu "program" z katalogu glownego do katalogu /src.
+
+Zadanie3 ver. 0.3 podpunkt c
+
+- Zamiana biblioteki statycznej "libobjetosc.a" na bliblioteke wspoldzielona "libobjetosc.la".

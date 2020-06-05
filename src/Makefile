@@ -107,7 +107,7 @@ am__installdirs = "$(DESTDIR)$(bindir)" "$(DESTDIR)$(pkgincludedir)"
 PROGRAMS = $(bin_PROGRAMS)
 am_program_OBJECTS = main.$(OBJEXT)
 program_OBJECTS = $(am_program_OBJECTS)
-program_DEPENDENCIES = ../headers/libpole.a ../headers/libobjetosc.a
+program_DEPENDENCIES = ../headers/libpole.a ../headers/libobjetosc.la
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
 am__v_lt_0 = --silent
@@ -220,7 +220,7 @@ CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"POLE_I_OBJETOSC\" -DPACKAGE_TARNAME=\"pole_i_objetosc\" -DPACKAGE_VERSION=\"O.2_ver\" -DPACKAGE_STRING=\"POLE_I_OBJETOSC\ O.2_ver\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"pole_i_objetosc\" -DVERSION=\"O.2_ver\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\"
+DEFS = -DPACKAGE_NAME=\"POLE_I_OBJETOSC\" -DPACKAGE_TARNAME=\"pole_i_objetosc\" -DPACKAGE_VERSION=\"O.3_ver\" -DPACKAGE_STRING=\"POLE_I_OBJETOSC\ O.3_ver\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"pole_i_objetosc\" -DVERSION=\"O.3_ver\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\"
 DEPDIR = .deps
 DLLTOOL = false
 DSYMUTIL = 
@@ -258,17 +258,17 @@ OTOOL64 =
 PACKAGE = pole_i_objetosc
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = POLE_I_OBJETOSC
-PACKAGE_STRING = POLE_I_OBJETOSC O.2_ver
+PACKAGE_STRING = POLE_I_OBJETOSC O.3_ver
 PACKAGE_TARNAME = pole_i_objetosc
 PACKAGE_URL = 
-PACKAGE_VERSION = O.2_ver
+PACKAGE_VERSION = O.3_ver
 PATH_SEPARATOR = :
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = strip
-VERSION = O.2_ver
+VERSION = O.3_ver
 abs_builddir = /home/student/Zadanie2/src
 abs_srcdir = /home/student/Zadanie2/src
 abs_top_builddir = /home/student/Zadanie2
@@ -325,7 +325,7 @@ top_builddir = ..
 top_srcdir = ..
 AM_CPPFLAGS = -I ../headers
 pkginclude_HEADERS = ../headers/pole.h ../headers/objetosc.h
-program_LDADD = ../headers/libpole.a ../headers/libobjetosc.a
+program_LDADD = ../headers/libpole.a ../headers/libobjetosc.la
 program_SOURCES = main.cpp
 all: all-am
 

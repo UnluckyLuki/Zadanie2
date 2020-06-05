@@ -15,6 +15,7 @@
 
 
 
+
 am__is_gnu_make = { \
   if test -z '$(MAKELEVEL)'; then \
     false; \
@@ -106,14 +107,46 @@ AM_V_AR = $(am__v_AR_$(V))
 am__v_AR_ = $(am__v_AR_$(AM_DEFAULT_VERBOSITY))
 am__v_AR_0 = @echo "  AR      " $@;
 am__v_AR_1 = 
-libobjetosc_a_AR = $(AR) $(ARFLAGS)
-libobjetosc_a_LIBADD =
-am_libobjetosc_a_OBJECTS = objetosc.$(OBJEXT)
-libobjetosc_a_OBJECTS = $(am_libobjetosc_a_OBJECTS)
 libpole_a_AR = $(AR) $(ARFLAGS)
 libpole_a_LIBADD =
 am_libpole_a_OBJECTS = pole.$(OBJEXT)
 libpole_a_OBJECTS = $(am_libpole_a_OBJECTS)
+am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;
+am__vpath_adj = case $$p in \
+    $(srcdir)/*) f=`echo "$$p" | sed "s|^$$srcdirstrip/||"`;; \
+    *) f=$$p;; \
+  esac;
+am__strip_dir = f=`echo $$p | sed -e 's|^.*/||'`;
+am__install_max = 40
+am__nobase_strip_setup = \
+  srcdirstrip=`echo "$(srcdir)" | sed 's/[].[^$$\\*|]/\\\\&/g'`
+am__nobase_strip = \
+  for p in $$list; do echo "$$p"; done | sed -e "s|$$srcdirstrip/||"
+am__nobase_list = $(am__nobase_strip_setup); \
+  for p in $$list; do echo "$$p $$p"; done | \
+  sed "s| $$srcdirstrip/| |;"' / .*\//!s/ .*/ ./; s,\( .*\)/[^/]*$$,\1,' | \
+  $(AWK) 'BEGIN { files["."] = "" } { files[$$2] = files[$$2] " " $$1; \
+    if (++n[$$2] == $(am__install_max)) \
+      { print $$2, files[$$2]; n[$$2] = 0; files[$$2] = "" } } \
+    END { for (dir in files) print dir, files[dir] }'
+am__base_list = \
+  sed '$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;$$!N;s/\n/ /g' | \
+  sed '$$!N;$$!N;$$!N;$$!N;s/\n/ /g'
+am__uninstall_files_from_dir = { \
+  test -z "$$files" \
+    || { test ! -d "$$dir" && test ! -f "$$dir" && test ! -r "$$dir"; } \
+    || { echo " ( cd '$$dir' && rm -f" $$files ")"; \
+         $(am__cd) "$$dir" && rm -f $$files; }; \
+  }
+am__installdirs = "$(DESTDIR)$(libdir)"
+LTLIBRARIES = $(lib_LTLIBRARIES)
+libobjetosc_la_LIBADD =
+am_libobjetosc_la_OBJECTS = objetosc.lo
+libobjetosc_la_OBJECTS = $(am_libobjetosc_la_OBJECTS)
+AM_V_lt = $(am__v_lt_$(V))
+am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
+am__v_lt_0 = --silent
+am__v_lt_1 = 
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -130,10 +163,6 @@ DEFAULT_INCLUDES = -I.
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
 am__mv = mv -f
-AM_V_lt = $(am__v_lt_$(V))
-am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
-am__v_lt_0 = --silent
-am__v_lt_1 = 
 CXXCOMPILE = $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
 	$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
 LTCXXCOMPILE = $(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) \
@@ -152,8 +181,8 @@ AM_V_CXXLD = $(am__v_CXXLD_$(V))
 am__v_CXXLD_ = $(am__v_CXXLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(libobjetosc_a_SOURCES) $(libpole_a_SOURCES)
-DIST_SOURCES = $(libobjetosc_a_SOURCES) $(libpole_a_SOURCES)
+SOURCES = $(libpole_a_SOURCES) $(libobjetosc_la_SOURCES)
+DIST_SOURCES = $(libpole_a_SOURCES) $(libobjetosc_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -198,7 +227,7 @@ CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -g -O2
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"POLE_I_OBJETOSC\" -DPACKAGE_TARNAME=\"pole_i_objetosc\" -DPACKAGE_VERSION=\"O.2_ver\" -DPACKAGE_STRING=\"POLE_I_OBJETOSC\ O.2_ver\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"pole_i_objetosc\" -DVERSION=\"O.2_ver\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\"
+DEFS = -DPACKAGE_NAME=\"POLE_I_OBJETOSC\" -DPACKAGE_TARNAME=\"pole_i_objetosc\" -DPACKAGE_VERSION=\"O.3_ver\" -DPACKAGE_STRING=\"POLE_I_OBJETOSC\ O.3_ver\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"pole_i_objetosc\" -DVERSION=\"O.3_ver\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\"
 DEPDIR = .deps
 DLLTOOL = false
 DSYMUTIL = 
@@ -236,17 +265,17 @@ OTOOL64 =
 PACKAGE = pole_i_objetosc
 PACKAGE_BUGREPORT = 
 PACKAGE_NAME = POLE_I_OBJETOSC
-PACKAGE_STRING = POLE_I_OBJETOSC O.2_ver
+PACKAGE_STRING = POLE_I_OBJETOSC O.3_ver
 PACKAGE_TARNAME = pole_i_objetosc
 PACKAGE_URL = 
-PACKAGE_VERSION = O.2_ver
+PACKAGE_VERSION = O.3_ver
 PATH_SEPARATOR = :
 RANLIB = ranlib
 SED = /bin/sed
 SET_MAKE = 
 SHELL = /bin/bash
 STRIP = strip
-VERSION = O.2_ver
+VERSION = O.3_ver
 abs_builddir = /home/student/Zadanie2/headers
 abs_srcdir = /home/student/Zadanie2/headers
 abs_top_builddir = /home/student/Zadanie2
@@ -303,9 +332,10 @@ top_builddir = ..
 top_srcdir = ..
 EXTRA_DIST = pole.h objetosc.h
 AM_CPPFLAGS = -I
-noinst_LIBRARIES = libpole.a libobjetosc.a
+noinst_LIBRARIES = libpole.a
+lib_LTLIBRARIES = libobjetosc.la
 libpole_a_SOURCES = ../src/pole.cpp
-libobjetosc_a_SOURCES = ../src/objetosc.cpp
+libobjetosc_la_SOURCES = ../src/objetosc.cpp
 all: all-am
 
 .SUFFIXES:
@@ -343,15 +373,48 @@ $(am__aclocal_m4_deps):
 clean-noinstLIBRARIES:
 	-test -z "$(noinst_LIBRARIES)" || rm -f $(noinst_LIBRARIES)
 
-libobjetosc.a: $(libobjetosc_a_OBJECTS) $(libobjetosc_a_DEPENDENCIES) $(EXTRA_libobjetosc_a_DEPENDENCIES) 
-	$(AM_V_at)-rm -f libobjetosc.a
-	$(AM_V_AR)$(libobjetosc_a_AR) libobjetosc.a $(libobjetosc_a_OBJECTS) $(libobjetosc_a_LIBADD)
-	$(AM_V_at)$(RANLIB) libobjetosc.a
-
 libpole.a: $(libpole_a_OBJECTS) $(libpole_a_DEPENDENCIES) $(EXTRA_libpole_a_DEPENDENCIES) 
 	$(AM_V_at)-rm -f libpole.a
 	$(AM_V_AR)$(libpole_a_AR) libpole.a $(libpole_a_OBJECTS) $(libpole_a_LIBADD)
 	$(AM_V_at)$(RANLIB) libpole.a
+
+install-libLTLIBRARIES: $(lib_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	@list='$(lib_LTLIBRARIES)'; test -n "$(libdir)" || list=; \
+	list2=; for p in $$list; do \
+	  if test -f $$p; then \
+	    list2="$$list2 $$p"; \
+	  else :; fi; \
+	done; \
+	test -z "$$list2" || { \
+	  echo " $(MKDIR_P) '$(DESTDIR)$(libdir)'"; \
+	  $(MKDIR_P) "$(DESTDIR)$(libdir)" || exit 1; \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 '$(DESTDIR)$(libdir)'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=install $(INSTALL) $(INSTALL_STRIP_FLAG) $$list2 "$(DESTDIR)$(libdir)"; \
+	}
+
+uninstall-libLTLIBRARIES:
+	@$(NORMAL_UNINSTALL)
+	@list='$(lib_LTLIBRARIES)'; test -n "$(libdir)" || list=; \
+	for p in $$list; do \
+	  $(am__strip_dir) \
+	  echo " $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f '$(DESTDIR)$(libdir)/$$f'"; \
+	  $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=uninstall rm -f "$(DESTDIR)$(libdir)/$$f"; \
+	done
+
+clean-libLTLIBRARIES:
+	-test -z "$(lib_LTLIBRARIES)" || rm -f $(lib_LTLIBRARIES)
+	@list='$(lib_LTLIBRARIES)'; \
+	locs=`for p in $$list; do echo $$p; done | \
+	      sed 's|^[^/]*$$|.|; s|/[^/]*$$||; s|$$|/so_locations|' | \
+	      sort -u`; \
+	test -z "$$locs" || { \
+	  echo rm -f $${locs}; \
+	  rm -f $${locs}; \
+	}
+
+libobjetosc.la: $(libobjetosc_la_OBJECTS) $(libobjetosc_la_DEPENDENCIES) $(EXTRA_libobjetosc_la_DEPENDENCIES) 
+	$(AM_V_CXXLD)$(CXXLINK) -rpath $(libdir) $(libobjetosc_la_OBJECTS) $(libobjetosc_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -359,7 +422,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/objetosc.Po
+include ./$(DEPDIR)/objetosc.Plo
 include ./$(DEPDIR)/pole.Po
 
 .cpp.o:
@@ -383,20 +446,6 @@ include ./$(DEPDIR)/pole.Po
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(LTCXXCOMPILE) -c -o $@ $<
 
-objetosc.o: ../src/objetosc.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT objetosc.o -MD -MP -MF $(DEPDIR)/objetosc.Tpo -c -o objetosc.o `test -f '../src/objetosc.cpp' || echo '$(srcdir)/'`../src/objetosc.cpp
-	$(AM_V_at)$(am__mv) $(DEPDIR)/objetosc.Tpo $(DEPDIR)/objetosc.Po
-#	$(AM_V_CXX)source='../src/objetosc.cpp' object='objetosc.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o objetosc.o `test -f '../src/objetosc.cpp' || echo '$(srcdir)/'`../src/objetosc.cpp
-
-objetosc.obj: ../src/objetosc.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT objetosc.obj -MD -MP -MF $(DEPDIR)/objetosc.Tpo -c -o objetosc.obj `if test -f '../src/objetosc.cpp'; then $(CYGPATH_W) '../src/objetosc.cpp'; else $(CYGPATH_W) '$(srcdir)/../src/objetosc.cpp'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/objetosc.Tpo $(DEPDIR)/objetosc.Po
-#	$(AM_V_CXX)source='../src/objetosc.cpp' object='objetosc.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o objetosc.obj `if test -f '../src/objetosc.cpp'; then $(CYGPATH_W) '../src/objetosc.cpp'; else $(CYGPATH_W) '$(srcdir)/../src/objetosc.cpp'; fi`
-
 pole.o: ../src/pole.cpp
 	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT pole.o -MD -MP -MF $(DEPDIR)/pole.Tpo -c -o pole.o `test -f '../src/pole.cpp' || echo '$(srcdir)/'`../src/pole.cpp
 	$(AM_V_at)$(am__mv) $(DEPDIR)/pole.Tpo $(DEPDIR)/pole.Po
@@ -410,6 +459,13 @@ pole.obj: ../src/pole.cpp
 #	$(AM_V_CXX)source='../src/pole.cpp' object='pole.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o pole.obj `if test -f '../src/pole.cpp'; then $(CYGPATH_W) '../src/pole.cpp'; else $(CYGPATH_W) '$(srcdir)/../src/pole.cpp'; fi`
+
+objetosc.lo: ../src/objetosc.cpp
+	$(AM_V_CXX)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT objetosc.lo -MD -MP -MF $(DEPDIR)/objetosc.Tpo -c -o objetosc.lo `test -f '../src/objetosc.cpp' || echo '$(srcdir)/'`../src/objetosc.cpp
+	$(AM_V_at)$(am__mv) $(DEPDIR)/objetosc.Tpo $(DEPDIR)/objetosc.Plo
+#	$(AM_V_CXX)source='../src/objetosc.cpp' object='objetosc.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
+#	$(AM_V_CXX_no)$(LIBTOOL) $(AM_V_lt) --tag=CXX $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o objetosc.lo `test -f '../src/objetosc.cpp' || echo '$(srcdir)/'`../src/objetosc.cpp
 
 mostlyclean-libtool:
 	-rm -f *.lo
@@ -501,8 +557,11 @@ distdir: $(DISTFILES)
 	done
 check-am: all-am
 check: check-am
-all-am: Makefile $(LIBRARIES)
+all-am: Makefile $(LIBRARIES) $(LTLIBRARIES)
 installdirs:
+	for dir in "$(DESTDIR)$(libdir)"; do \
+	  test -z "$$dir" || $(MKDIR_P) "$$dir"; \
+	done
 install: install-am
 install-exec: install-exec-am
 install-data: install-data-am
@@ -535,8 +594,8 @@ maintainer-clean-generic:
 	@echo "it deletes files that may require special tools to rebuild."
 clean: clean-am
 
-clean-am: clean-generic clean-libtool clean-noinstLIBRARIES \
-	mostlyclean-am
+clean-am: clean-generic clean-libLTLIBRARIES clean-libtool \
+	clean-noinstLIBRARIES mostlyclean-am
 
 distclean: distclean-am
 	-rm -rf ./$(DEPDIR)
@@ -562,7 +621,7 @@ install-dvi: install-dvi-am
 
 install-dvi-am:
 
-install-exec-am:
+install-exec-am: install-libLTLIBRARIES
 
 install-html: install-html-am
 
@@ -602,23 +661,24 @@ ps: ps-am
 
 ps-am:
 
-uninstall-am:
+uninstall-am: uninstall-libLTLIBRARIES
 
 .MAKE: install-am install-strip
 
 .PHONY: CTAGS GTAGS TAGS all all-am check check-am clean clean-generic \
-	clean-libtool clean-noinstLIBRARIES cscopelist-am ctags \
-	ctags-am distclean distclean-compile distclean-generic \
-	distclean-libtool distclean-tags distdir dvi dvi-am html \
-	html-am info info-am install install-am install-data \
-	install-data-am install-dvi install-dvi-am install-exec \
-	install-exec-am install-html install-html-am install-info \
-	install-info-am install-man install-pdf install-pdf-am \
-	install-ps install-ps-am install-strip installcheck \
-	installcheck-am installdirs maintainer-clean \
-	maintainer-clean-generic mostlyclean mostlyclean-compile \
-	mostlyclean-generic mostlyclean-libtool pdf pdf-am ps ps-am \
-	tags tags-am uninstall uninstall-am
+	clean-libLTLIBRARIES clean-libtool clean-noinstLIBRARIES \
+	cscopelist-am ctags ctags-am distclean distclean-compile \
+	distclean-generic distclean-libtool distclean-tags distdir dvi \
+	dvi-am html html-am info info-am install install-am \
+	install-data install-data-am install-dvi install-dvi-am \
+	install-exec install-exec-am install-html install-html-am \
+	install-info install-info-am install-libLTLIBRARIES \
+	install-man install-pdf install-pdf-am install-ps \
+	install-ps-am install-strip installcheck installcheck-am \
+	installdirs maintainer-clean maintainer-clean-generic \
+	mostlyclean mostlyclean-compile mostlyclean-generic \
+	mostlyclean-libtool pdf pdf-am ps ps-am tags tags-am uninstall \
+	uninstall-am uninstall-libLTLIBRARIES
 
 .PRECIOUS: Makefile
 
