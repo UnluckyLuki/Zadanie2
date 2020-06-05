@@ -1,4 +1,4 @@
-AC_INIT([POLE_I_OBJETOSC], [O.1_ver])
+AC_INIT([POLE_I_OBJETOSC], [O.2_ver])
 
 AM_INIT_AUTOMAKE
 
@@ -6,8 +6,9 @@ AC_LANG(C++)
 
 AC_PROG_CXX
 
+LT_INIT
 
-AC_CONFIG_FILES([Makefile])
+AC_CONFIG_FILES([Makefile headers/Makefile src/Makefile])
 
 AC_CONFIG_MACRO_DIRS([m4])
 

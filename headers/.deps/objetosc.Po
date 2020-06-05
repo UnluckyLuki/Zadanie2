@@ -1,0 +1,5 @@
+objetosc.o: ../src/objetosc.cpp /usr/include/stdc-predef.h objetosc.h
+
+/usr/include/stdc-predef.h:
+
+objetosc.h:

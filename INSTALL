@@ -1,7 +1,7 @@
-program Ver. 0.1 podpunkt a
+program Ver. 0.2 podpunkt b
 
 1. Sprawdz czy masz zainstalowane programy:
-automake, autoconf oraz gcc
+automake, autoconf, libtool oraz gcc
 Mozna to sprawdzic poleceniem:
 sudo apt list --installed |grep automake nazwaprogramu
 2. Jezeli nie posiadasz na swoim systemie danych programow uzyj polecenia:
@@ -15,6 +15,6 @@ automake
 ./configure
 make
 5. Aby uruchamic juz skompilowany program uzyj polecenia:
-./program
+./src/program
 6. Gotowe
 
