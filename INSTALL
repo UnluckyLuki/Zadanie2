@@ -9,6 +9,7 @@ sudo apt-get install nazwaprogramu
 3. Rozpakuj dany program uzywajac terminalu graficznego lub polecenia w terminalu:
 tar -xzvf Zadanie2.tar.gz -C /'nazwa_folderu'
 4. W danym folderze z programem uzyj nastepujacej komend w nastepujacej kolejnosci:
+autoreconf -i
 aclocal
 autoconf
 automake
