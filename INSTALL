@@ -1,0 +1,20 @@
+program Ver. 0.1 podpunkt a
+
+1. Sprawdz czy masz zainstalowane programy:
+automake, autoconf oraz gcc
+Mozna to sprawdzic poleceniem:
+sudo apt list --installed |grep automake nazwaprogramu
+2. Jezeli nie posiadasz na swoim systemie danych programow uzyj polecenia:
+sudo apt-get install nazwaprogramu
+3. Rozpakuj dany program uzywajac terminalu graficznego lub polecenia w terminalu:
+tar -xzvf Zadanie2.tar.gz -C /'nazwa_folderu'
+4. W danym folderze z programem uzyj nastepujacej komend w nastepujacej kolejnosci:
+aclocal
+autoconf
+automake
+./configure
+make
+5. Aby uruchamic juz skompilowany program uzyj polecenia:
+./program
+6. Gotowe
+
